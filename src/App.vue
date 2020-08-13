@@ -1,13 +1,22 @@
 <template>
   <div id="app">
-    1
-    <router-view></router-view>
+    <Header></Header>
+    <transition enter-active-class="animate__animated animate__bounceInLeft" leave-active-class="animate__animated animate__bounceInLeft">
+      <router-view></router-view>
+    </transition>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
 export default {
   name: 'App',
+  components: {
+    Header,
+    Footer,
+  },
   mounted() {
     // 监听当前页面 显示状态
     window.addEventListener('visibilitychange',function(){
